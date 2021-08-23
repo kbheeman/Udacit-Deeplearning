@@ -44,7 +44,9 @@ class NeuralNetwork(object):
         n_records = features.shape[0]
         delta_weights_i_h = np.zeros(self.weights_input_to_hidden.shape)
         delta_weights_h_o = np.zeros(self.weights_hidden_to_output.shape)
-        for i in range(5):
+        for i in range(iterations):
+            delta_weights_i_h = np.zeros(self.weights_input_to_hidden.shape)
+            delta_weights_h_o = np.zeros(self.weights_hidden_to_output.shape)
             for X, y in zip(features, targets):
             
                 final_outputs, hidden_outputs = self.forward_pass_train(X)  # Implement the forward pass function below
